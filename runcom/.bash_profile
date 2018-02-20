@@ -16,11 +16,11 @@ else
 fi
 
 # Make utilities available
-PATH="$DOTFILES_DIR/bin:$PATH"
+#PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Read cache
-DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
-[ -f "$DOTFILES_CACHE" ] && . "$DOTFILES_CACHE"
+#DOTFILES_CACHE="$DOTFILES_DIR/.cache.sh"
+#[ -f "$DOTFILES_CACHE" ] && . "$DOTFILES_CACHE"
 
 # Finally we can source the dotfiles (order matters)
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,completion,grep,prompt,nvm,rvm,custom}; do
@@ -37,16 +37,17 @@ done
 #eval "$(dircolors "$DOTFILES_DIR"/system/.dir_colors)"
 
 # Hook for extra/custom stuff
-DOTFILES_EXTRA_DIR="$HOME/.extra"
-
-if [ -d "$DOTFILES_EXTRA_DIR" ]; then
-  for EXTRAFILE in "$DOTFILES_EXTRA_DIR"/runcom/*.sh; do
-    [ -f "$EXTRAFILE" ] && . "$EXTRAFILE"
-  done
-fi
+#DOTFILES_EXTRA_DIR="$HOME/.extra"
+#
+#if [ -d "$DOTFILES_EXTRA_DIR" ]; then
+#  for EXTRAFILE in "$DOTFILES_EXTRA_DIR"/runcom/*.sh; do
+#    [ -f "$EXTRAFILE" ] && . "$EXTRAFILE"
+#  done
+#fi
 
 # Clean up
-unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE EXTRAFILE
+unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE 
+#EXTRAFILE
 
 # Export
 export DOTFILES_DIR DOTFILES_EXTRA_DIR
