@@ -50,3 +50,5 @@ unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE EXTRAFILE
 
 # Export
 export DOTFILES_DIR DOTFILES_EXTRA_DIR
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
