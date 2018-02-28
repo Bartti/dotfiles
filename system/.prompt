@@ -43,7 +43,7 @@ export PS1='\[\e[0;32m\][\A]\[\e[1;34m\]\u\[\e[m\]\[\e[1;31m\]@\[\e[m\]\[\e[1;36
 #export PS1="$CYAN λ \W $RESETCOLOR"
 
 if [ "`id -u`" -eq 0 ]; then
-    PS1="[$REDBOLD λ $GREENBOLD \W $RESETCOLOR "
+    PS1="[$REDBOLD λ $GREENBOLD \W$RESETCOLOR ] "
 else
     PS1="[$GREENBOLD λ \W$RESETCOLOR ] "
 fi
