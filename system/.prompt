@@ -51,17 +51,17 @@ function prompt {
 #    PS1="$PURPLEBOLD\\H$RESETCOLOR:[$GREENBOLD λ \W$RESETCOLOR ]\\$ "
 #fi
 
-#if [ "`id -u`" -eq 0 ]; then
-#  export PS1="\[$(tput bold)$(tput setab 0)$(tput setaf 1)\]\u@\h:\w # \[$(tput sgr0)\]"
-#else
-#  export PS1="[$YELLOW\t\[\e[m\]]$GREEN\u\[\e[m\]@$CYAN\H\[\e[m\]:$RED\`nonzero_return\`\[\e[m\]\w\\$ "
-#fi
+if [ "`id -u`" -eq 0 ]; then
+  export PS1="\[$(tput bold)$(tput setab 0)$(tput setaf 1)\]\u@\h:\w # \[$(tput sgr0)\]"
+else
+  export PS1="[$YELLOW\t\[\e[m\]]$GREEN\u\[\e[m\]@$CYAN\H\[\e[m\]:$RED\`nonzero_return\`\[\e[m\]\w\\$ "
+fi
 
 
 #┌─[✔]───[username@hostname.local]───[directory]───[0 files, blocks]
 #└───▶
-export PS1="┌─[\`if [ \$? = 0 ]; then echo \[\e[32m\]✔\[\e[0m\]; else echo \[\e[0;31m\]✘\[\e[0m\]; fi\`]───[\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;35m\]\H\[\e[0m\]]───[\[\e[0;34m\]\W\[\e[0m\]]───[\[\e[0;39m\]\$(ls `pwd` | wc -l | sed 's/^[ \t]*//g') files, \$(ls -lah | grep -m 1 total | sed 's/total //')\[\e[0m\]]\n└───▶ "
-export PS1="┌─[\`if [ \$? = 0 ]; then echo \[\e[32m\]✔\[\e[0m\]; else echo \[\e[0;31m\]✘\[\e[0m\]; fi\`]───[\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;35m\]\H\[\e[0m\]]───[\[\e[0;34m\]\W\[\e[0m\]]───[\[\e[0;39m\]\$(ls `pwd` | wc -l | sed 's/^[ \t]*//g') files\[\e[0m\]]\n└───▶ "
+#export PS1="┌─[\`if [ \$? = 0 ]; then echo \[\e[32m\]✔\[\e[0m\]; else echo \[\e[0;31m\]✘\[\e[0m\]; fi\`]───[\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;35m\]\H\[\e[0m\]]───[\[\e[0;34m\]\W\[\e[0m\]]───[\[\e[0;39m\]\$(ls `pwd` | wc -l | sed 's/^[ \t]*//g') files, \$(ls -lah | grep -m 1 total | sed 's/total //')\[\e[0m\]]\n└───▶ "
+#export PS1="┌─[\`if [ \$? = 0 ]; then echo \[\e[32m\]✔\[\e[0m\]; else echo \[\e[0;31m\]✘\[\e[0m\]; fi\`]───[\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;35m\]\H\[\e[0m\]]───[\[\e[0;34m\]\W\[\e[0m\]]───[\[\e[0;39m\]\$(ls `pwd` | wc -l | sed 's/^[ \t]*//g') files\[\e[0m\]]\n└───▶ "
 
 
 }
