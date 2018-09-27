@@ -1,2 +1,3 @@
-complete -W "$(awk '/127\.0\.0\.1/ {next} /has address/ {print $1, $4}' <(host -l ofc) <(host -l atm dns-lan-3.ofc) <(host -l gog) <(host -l pop))" ssh scp host nmap ping rsync telnet mtr slogin traceroute mtr
+#complete -W "$(awk '/127\.0\.0\.1/ {next} /has address/ {print $1, $4}' <(host -l ofc) <(host -l atm dns-lan-3.ofc) <(host -l gog) <(host -l pop))" ssh scp host nmap ping rsync telnet mtr slogin traceroute mtr
+complete -W "$(awk '/127\.0\.0\.1/ {next} /has address/ {print $1, $4}' <(host -l ofc) <(host -l atm 10.4.0.17) <(host -l gog) <(host -l pop))" ssh scp host nmap ping rsync telnet mtr slogin traceroute mtr
 
