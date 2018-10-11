@@ -1,13 +1,13 @@
 #complete -W "$(awk '/127\.0\.0\.1/ {next} /has address/ {print $1, $4}' <(host -l ofc) <(host -l atm dns-lan-3.ofc) <(host -l gog) <(host -l pop))" ssh scp host nmap ping rsync telnet mtr slogin traceroute mtr
-#complete -W "$(awk '/127\.0\.0\.1/ {next} /has address/ {print $1, $4}' <(host -l ofc) <(host -l atm 10.4.0.17) <(host -l gog) <(host -l pop))" ssh scp host nmap ping rsync telnet mtr slogin traceroute mtr
-
+#complete -W "$(awk '/127\.0\.0\.1/ {next} /has address/ {print $1, $4}' <(host -l ofc 10.4.0.17) <(host -l atm 10.4.0.17) <(host -l gog 10.4.0.17) <(host -l pop 10.4.0.17))" ssh scp host nmap ping rsync telnet mtr slogin traceroute mtr
 
 dnsserver='10.4.0.17'
-tlds='atm ofc'
+tlds='atm ofc gog'
 list=''
+apps='ssh mtr ping traceroute host dig scp nmap rsync telnet slogin'
 
 for tld in $tlds; do
-  list+=$( host -l $tld $dnsserver | grep $tld | grep -vE '^.*(eth|br|vlan|docker).*$' | awk '{print $1}' )
+  list+=$(host -l $tld $dnsserver|grep $tld|grep -vE '^.*(eth|br|vlan|docker).*$'|awk '{print $1}')
 done
-complete -W $list
+complete -W '$list' $apps
 
